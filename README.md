@@ -1,0 +1,1 @@
+# codeswitcher-maven-plugin
