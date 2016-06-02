@@ -6,7 +6,7 @@
 	<packaging>maven-plugin</packaging>
 	<name>Codeswitcher Pre-processor.</name>
 	<description>Pre-processes source to enable or disable code paths at compile time.</description>
-	<version>2.1.0</version>
+	<version>2.1.1-SNAPSHOT</version>
 
 	<distributionManagement>
 		<snapshotRepository>
