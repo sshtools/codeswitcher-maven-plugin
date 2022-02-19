@@ -1,5 +1,7 @@
 # codeswitcher-maven-plugin
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.sshtoosl/codeswitcher-maven-plugin/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.sshtools/codeswitcher-maven-plugin/)
+
 A simple pre-processor plugin for Maven that can adjust Java source, removing or inserting blocks of code depending on simple boolean conditions, or replacing any strings (not just variable patterns). 
 
 It is based on HSQLDB's `CodeSwitcher` class, turned into a Maven plugin and a couple of extra features added.
