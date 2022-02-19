@@ -1,4 +1,4 @@
-package org.sshtools.maven.codeswitcher;
+package com.sshtools.maven.codeswitcher;
 
 /* 
  * Heavily based on HSQLDB's CodeSwitcher utility. All remaining portions subject
