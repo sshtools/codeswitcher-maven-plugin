@@ -1,4 +1,4 @@
-package org.sshtools.maven.codeswitcher;
+package com.sshtools.maven.codeswitcher;
 
 import java.io.File;
 import java.io.IOException;
