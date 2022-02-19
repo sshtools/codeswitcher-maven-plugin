@@ -144,7 +144,7 @@ public class CodeSwitcher {
 	/**
 	 * Set the output line separator. Defaults to the platform separator.
 	 * 
-	 * @param line separator
+	 * @param lineSeparator line separator
 	 */
 	public void setLineSeparator(String lineSeparator) {
 		this.lineSeparator = lineSeparator;
@@ -562,6 +562,7 @@ public class CodeSwitcher {
 	static String trimBoth(String text) {
 		text = text.trim();
 		int s = text.length();
+		@SuppressWarnings("unused")
 		char ch;
 		int i;
 		for (i = 0; i < s && Character.isWhitespace((ch = text.charAt(i))); i++)
@@ -658,7 +659,7 @@ public class CodeSwitcher {
 	 * and all subdirectories.
 	 * </pre>
 	 * 
-	 * @param arguments.
+	 * @param a arguments.
 	 * @throws ParseException
 	 */
 	public static void main(String a[]) throws ParseException {

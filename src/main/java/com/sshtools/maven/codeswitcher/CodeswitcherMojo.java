@@ -23,89 +23,73 @@ import java.util.Map;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.FileUtils;
 
-/**
- * Pre-process source
- * 
- * @goal pre-process
- */
+@Mojo( name = "pre-process", threadSafe = true)
 public class CodeswitcherMojo extends AbstractMojo {
 	/**
 	 * The temporary directory to write the pre-processed files to when
 	 * runOnCopy is set to true (the default).
-	 * 
-	 * @parameter default-value="target/preprocessed"
 	 */
+	@Parameter( property = "codeswitch.temporaryDirectory", defaultValue = "target/preprocessed" )
 	private String temporaryDirectory = "target/preprocessed";
 
 	/**
 	 * When set, the goal will run on a copy of the source.
-	 * 
-	 * @parameter default-value="true"
 	 */
+	@Parameter( property = "codeswitch.workOnCopy", defaultValue = "true" )
 	private boolean workOnCopy = true;
 
 	/**
 	 * When set, code will be commented out rather than stripped
-	 * 
-	 * @parameter default-value="false"
 	 */
+	@Parameter( property = "codeswitch.comment", defaultValue = "false" )
 	private boolean comment;
 
 	/**
 	 * When set, the new source code will be set as the main source directory
 	 * for the built. <code>workOnCopy</code> must also be <code>true</code> and
 	 * a <code>temporaryDirectory</code> must be set.
-	 * 
-	 * @parameter default-value="false"
 	 */
+	@Parameter( property = "codeswitch.changeBuildSourceDirectory", defaultValue = "false" )
 	private boolean changeBuildSourceDirectory;
 
 	/**
 	 * The list of symbols whose code will be enabled.
-	 * 
-	 * @parameter
 	 */
+	@Parameter( property = "codeswitch.enable", defaultValue = "" )
 	private String[] enable;
 
 	/**
 	 * The list of symbols whose code will be disabled/
-	 * 
-	 * @parameter
 	 */
+	@Parameter( property = "codeswitch.disable", defaultValue = "" )
 	private String[] disable;
 
 	/**
 	 * The output line separator. If not set, defaults to platform settings.
 	 * Otherwise may be one of cr,crlf or lf
-	 * 
-	 * @parameter
 	 */
+	@Parameter( property = "codeswitch.lineSeparator", defaultValue = "" )
 	private String lineSeparator;
 
 	/**
 	 * Special token that gets replaced with the current timestamp
-	 * 
-	 * @parameter
 	 */
+	@Parameter( property = "codeswitch.timestampToken", defaultValue = "" )
 	private String timestampToken;
 
 	/**
-	 * @parameter expression="${project}"
-	 * @required
-	 * @readonly
-	 * @since 1.0
+	 * List of tokens that will simply be replaced in any pre-processed source.
 	 */
-	private MavenProject project;
-
-	/**
-	 * Listof tokens that will simply be replaced in any pre-processed source.
-	 * 
-	 * @parameter
-	 */
+	@Parameter( property = "codeswitch.tokens", defaultValue = "" )
 	private Token[] tokens;
+
+	@Parameter(required = true, readonly = true, property = "project")
+	protected MavenProject project;
 
 	public void execute() throws MojoExecutionException {
 		// Copy original source if configured to do so
