@@ -23,6 +23,7 @@
 	<name>Codeswitcher Pre-processor.</name>
 	<description>Pre-processes source to enable or disable code paths at compile time.</description>
 	<version>2.1.1</version>
+	<url>https://github.com/sshtools/codeswitcher-maven-plugin</url>
 
 	<properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
