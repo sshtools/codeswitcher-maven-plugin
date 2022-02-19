@@ -102,10 +102,13 @@
 								<goal>sign</goal>
 							</goals>
 							<configuration>
+								<!-- Might be needed depending on build server -->
+								<!--
 								<gpgArguments>
-									<arg>--pinentry-mode</arg>
+									<arg>MINUSMINUSpinentry-mode</arg>
 									<arg>loopback</arg>
 								</gpgArguments>
+								-->
 							</configuration>
 						</execution>
 					</executions>
