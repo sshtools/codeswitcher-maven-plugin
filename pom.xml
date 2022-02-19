@@ -102,6 +102,10 @@
 								<goal>sign</goal>
 							</goals>
 							<configuration>
+							
+								<gpgArguments>
+									<gpgArgument>--batch</gpgArgument>
+								</gpgArguments>
 								<!-- Might be needed depending on build server -->
 								<!--
 								<gpgArguments>
