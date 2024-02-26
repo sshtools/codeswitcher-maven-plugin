@@ -23,13 +23,13 @@ public class Token {
 	/**
 	 * The token key, i.e. the text that is search for.
 	 * 
-	 * @parameter token
+	 * @param token
 	 */
 	public String key;
 	/**
 	 * The token value, i.e. the text that is inserted in place of the key.
 	 * 
-	 * @parameter token
+	 * @param token
 	 */
 	public String value;
 
